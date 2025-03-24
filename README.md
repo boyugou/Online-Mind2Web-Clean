@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ```
 
 # Evaluation
-Run the script to do the evalution
+Run the script to do the evaluation.
 ```bash
 bash ./script/eval.sh
 ```
