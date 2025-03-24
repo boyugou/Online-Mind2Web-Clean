@@ -79,7 +79,7 @@ The last snapshot of the web page is shown in the image."""
     for idx, (thought, action) in enumerate(zip(thoughts, last_actions)):
         thought = thought.replace("\n\n", " ")
         action = action.replace("\n\n", " ")
-        thoughts_and_actions += f"Thought {idx}: {thought}\nAction {idx}: {action}\n\n"
+        thoughts_and_actions += f"Thought {idx+1}: {thought}\nAction {idx+1}: {action}\n\n"
     text = prompt.format(task=task, thoughts_and_actions=thoughts_and_actions.strip("\n\n"))
 
     jpg_base64_str = encode_image(Image.open(images_path))
