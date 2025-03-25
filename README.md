@@ -13,7 +13,7 @@
 
 <p align="center">
   <sup>1</sup>The Ohio State University, <sup>2</sup>University of California, Berkeley </br>
-  <sub><sup>*</sup>Equal contribution, <sup>†</sup>Equal Advising</sub>
+  <sub><sup>*</sup>Equal contribution, <sup>†</sup>Equal advising</sub>
 </p>
 
 <p align="center">
