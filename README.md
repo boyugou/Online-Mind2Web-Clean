@@ -62,5 +62,5 @@ bash ./script/eval.sh
   journal = "OSU NLP Blog",
   year    = "2025",
   month   = "Mar",
-  url     = "https://tiancixue.notion.site/An-Illusion-of-Progress-Assessing-the-Current-State-of-Web-Agents-1ac6cd2b9aac80719cd6f68374aaf4b4?pvs=4"
+  url     = "https://tiancixue.notion.site/An-Illusion-of-Progress-Assessing-the-Current-State-of-Web-Agents-1ac6cd2b9aac80719cd6f68374aaf4b4"
 }
