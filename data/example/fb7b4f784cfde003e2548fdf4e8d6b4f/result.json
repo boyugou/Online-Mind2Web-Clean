@@ -1,6 +1,6 @@
 {
-    "task_id": "1",
-    "task": "Open the page with a overview about the submission of releases on discogs.",
+    "task_id": "fb7b4f784cfde003e2548fdf4e8d6b4f",
+    "task": "Open the page with an overview of the submission of releases on Discogs.",
     "final_result_response": "The page with an overview of submission guidelines for releases on Discogs is open: https://support.discogs.com/hc/en-us/articles/360004016474-Overview-Of-Submission-Guidelines-For-Releases",
     "action_history": [
         "<div role=\"button\"> -> CLICK",
