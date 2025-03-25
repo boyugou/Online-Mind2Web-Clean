@@ -1,7 +1,7 @@
 import argparse
 import os
-from auto_eval_prompt import *
-from auto_eval_utils import OpenaiEngine, extract_predication
+from prompt import *
+from utils import OpenaiEngine, extract_predication
 import json
 import copy
 import asyncio
@@ -25,7 +25,7 @@ def auto_eval(args, task_subset, final_predicted_labels, lock, model):
     print(f"The number of already done tasks: {len(already_ids)}")
 
     for task_id in task_subset:
-        #Skip already done tas
+        #Skip already done task
         if task_id in already_ids:
             continue
 
@@ -84,7 +84,7 @@ def auto_eval(args, task_subset, final_predicted_labels, lock, model):
             final_predicted_labels.append(predicted_label)
 
         print(f"Finish evaluation for {task_description}")
-        print("==========================================")
+        print("="*20)
         os.makedirs(args.output_path, exist_ok=True)
         with lock:
             with open(os.path.join(args.output_path, f"{args.mode}_{args.model}_score_threshold_{args.score_threshold}_auto_eval_results.json"), "a+") as f_out:
@@ -109,8 +109,7 @@ def parallel_eval(args, num_workers=60):
     #Load model
     model = OpenaiEngine(
         model=args.model,
-        api_key=args.api_key,
-        endpoint_target_uri = args.endpoint_target_uri
+        api_key=args.api_key
     )
 
     lock = multiprocessing.Lock()
@@ -128,7 +127,7 @@ def parallel_eval(args, num_workers=60):
         success_num = sum(final_predicted_labels) 
 
     print("Evaluation complete.")
-    print(f"The success rate is {success_num / len(task_dirs) * 100}.")
+    print(f"The success rate is {(success_num / len(task_dirs)) * 100}.")
 
 
 if __name__ == "__main__":
@@ -140,7 +139,6 @@ if __name__ == "__main__":
     parser.add_argument("--output_path", type=str, required=True, help="The output path")
     parser.add_argument('--score_threshold', type=int, default=3)
     parser.add_argument('--num_worker', type=int, default=60)
-    parser.add_argument("--endpoint_target_uri", type=str,default='', help="")
     args = parser.parse_args()
 
     parallel_eval(args, args.num_worker)

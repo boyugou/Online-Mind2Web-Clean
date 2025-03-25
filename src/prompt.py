@@ -1,4 +1,4 @@
-from auto_eval_utils import encode_image
+from utils import encode_image
 from PIL import Image
 import re
 import asyncio
