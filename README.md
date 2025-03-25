@@ -36,11 +36,8 @@ If you find any tasks are outdated, please reach out to us, and we will update t
 To enhance the reliability and scalability of the evaluation process in online environments, We propose a more reliable automatic evaluation method, which consists of three parts. (1) Key Point Identification: The model is prompted to identify several key points necessary for completing the task, based on the given instruction and task description. (2) Key Screenshot Identification: Important screenshots are selected from the agent’s trajectory to retain relevant visual evidence while discarding uninformative frames. (3) Outcome Judgment: Output the judgement result based on the task description, key points, key screenshots, and the action history. Our method preserves critical intermediate screenshots while mitigating the token overload issue.
 
 <p align="center">
-<<<<<<< HEAD
   <img src="" width="100%" alt="teaser">
-=======
   <img src="./images/pipeline.jpg" width="100%" alt="teaser">
->>>>>>> 7770487 (initialize)
 </p>
 
 # Setup Environment
