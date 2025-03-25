@@ -55,7 +55,8 @@ bash ./script/eval.sh
 ```
 ## 📚 Citation
 
-```bibtex
+Note: Online-Mind2Web is derived from the original Mind2Web dataset. We kindly ask that you cite both the original and this work when using or referencing the data.
+```
 @article{xue2025webagents,
   title   = "An Illusion of Progress? Assessing the Current State of Web Agents",
   author  = "Xue, Tianci and Qi, Weijian and Shi, Tianneng and Song, Chan Hee and Gou, Boyu and Song, Dawn and Sun, Huan and Su, Yu",
@@ -64,3 +65,16 @@ bash ./script/eval.sh
   month   = "Mar",
   url     = "https://tiancixue.notion.site/An-Illusion-of-Progress-Assessing-the-Current-State-of-Web-Agents-1ac6cd2b9aac80719cd6f68374aaf4b4"
 }
+
+@inproceedings{NEURIPS2023_5950bf29,
+ author = {Deng, Xiang and Gu, Yu and Zheng, Boyuan and Chen, Shijie and Stevens, Sam and Wang, Boshi and Sun, Huan and Su, Yu},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {A. Oh and T. Naumann and A. Globerson and K. Saenko and M. Hardt and S. Levine},
+ pages = {28091--28114},
+ publisher = {Curran Associates, Inc.},
+ title = {Mind2Web: Towards a Generalist Agent for the Web},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2023/file/5950bf290a1570ea401bf98882128160-Paper-Datasets_and_Benchmarks.pdf},
+ volume = {36},
+ year = {2023}
+}
+```
