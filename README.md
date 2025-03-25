@@ -66,7 +66,7 @@ Note: Online-Mind2Web is derived from the original Mind2Web dataset. We kindly a
   url     = "https://tiancixue.notion.site/An-Illusion-of-Progress-Assessing-the-Current-State-of-Web-Agents-1ac6cd2b9aac80719cd6f68374aaf4b4"
 }
 
-@inproceedings{NEURIPS2023_5950bf29,
+@inproceedings{deng2023mind2web,
  author = {Deng, Xiang and Gu, Yu and Zheng, Boyuan and Chen, Shijie and Stevens, Sam and Wang, Boshi and Sun, Huan and Su, Yu},
  booktitle = {Advances in Neural Information Processing Systems},
  editor = {A. Oh and T. Naumann and A. Globerson and K. Saenko and M. Hardt and S. Levine},
