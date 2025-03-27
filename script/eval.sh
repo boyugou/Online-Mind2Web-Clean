@@ -12,7 +12,7 @@ modes=(
 
 base_dir="./data/example"
 for mode in "${modes[@]}"; do
-    python ./src/auto_eval_run.py \
+    python ./src/run.py \
         --mode "$mode" \
         --model "${model_name}" \
         --trajectories_dir "$base_dir" \
