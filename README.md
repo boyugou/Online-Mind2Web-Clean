@@ -59,7 +59,7 @@ bash ./script/eval.sh
 
 Note: Online-Mind2Web is derived from the original Mind2Web dataset. We kindly ask that you cite both the original and this work when using or referencing the data.
 ```
-@misc{xue2025illusionprogressassessingcurrent,
+@article{xue2025illusionprogressassessingcurrent,
       title={An Illusion of Progress? Assessing the Current State of Web Agents}, 
       author={Tianci Xue and Weijian Qi and Tianneng Shi and Chan Hee Song and Boyu Gou and Dawn Song and Huan Sun and Yu Su},
       year={2025},
