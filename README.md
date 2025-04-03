@@ -17,6 +17,8 @@
 </p>
 
 <p align="center">
+<a href="https://arxiv.org/abs/2504.01382">📃 Paper</a>
+•
 <a href="https://tiancixue.notion.site/An-Illusion-of-Progress-Assessing-the-Current-State-of-Web-Agents-1ac6cd2b9aac80719cd6f68374aaf4b4?pvs=4">📃 Blog</a>
 •
 <a href="https://huggingface.co/spaces/osunlp/Online_Mind2Web_Leaderboard" >🏆 Leaderboard</a>
@@ -65,15 +67,6 @@ Note: Online-Mind2Web is derived from the original Mind2Web dataset. We kindly a
       archivePrefix={arXiv},
       primaryClass={cs.AI},
       url={https://arxiv.org/abs/2504.01382}, 
-}
-
-@article{xue2025webagents,
-  title   = "An Illusion of Progress? Assessing the Current State of Web Agents",
-  author  = "Xue, Tianci and Qi, Weijian and Shi, Tianneng and Song, Chan Hee and Gou, Boyu and Song, Dawn and Sun, Huan and Su, Yu",
-  journal = "OSU NLP Blog",
-  year    = "2025",
-  month   = "Mar",
-  url     = "https://tiancixue.notion.site/An-Illusion-of-Progress-Assessing-the-Current-State-of-Web-Agents-1ac6cd2b9aac80719cd6f68374aaf4b4"
 }
 
 @inproceedings{deng2023mind2web,
