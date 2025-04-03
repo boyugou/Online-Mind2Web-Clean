@@ -57,6 +57,16 @@ bash ./script/eval.sh
 
 Note: Online-Mind2Web is derived from the original Mind2Web dataset. We kindly ask that you cite both the original and this work when using or referencing the data.
 ```
+@misc{xue2025illusionprogressassessingcurrent,
+      title={An Illusion of Progress? Assessing the Current State of Web Agents}, 
+      author={Tianci Xue and Weijian Qi and Tianneng Shi and Chan Hee Song and Boyu Gou and Dawn Song and Huan Sun and Yu Su},
+      year={2025},
+      eprint={2504.01382},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2504.01382}, 
+}
+
 @article{xue2025webagents,
   title   = "An Illusion of Progress? Assessing the Current State of Web Agents",
   author  = "Xue, Tianci and Qi, Weijian and Shi, Tianneng and Song, Chan Hee and Gou, Boyu and Song, Dawn and Sun, Huan and Su, Yu",
