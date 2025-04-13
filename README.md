@@ -17,6 +17,8 @@
 </p>
 
 <p align="center">
+<a href="https://arxiv.org/abs/2504.01382">📃 Paper</a>
+•
 <a href="https://tiancixue.notion.site/An-Illusion-of-Progress-Assessing-the-Current-State-of-Web-Agents-1ac6cd2b9aac80719cd6f68374aaf4b4?pvs=4">📃 Blog</a>
 •
 <a href="https://huggingface.co/spaces/osunlp/Online_Mind2Web_Leaderboard" >🏆 Leaderboard</a>
@@ -63,12 +65,27 @@ In certain scenarios, testing on the full Online-Mind2Web dataset may not be fea
 
 ## 📚 Citation
 
-```bibtex
-@article{xue2025webagents,
-  title   = "An Illusion of Progress? Assessing the Current State of Web Agents",
-  author  = "Xue, Tianci and Qi, Weijian and Shi, Tianneng and Song, Chan Hee and Gou, Boyu and Song, Dawn and Sun, Huan and Su, Yu",
-  journal = "OSU NLP Blog",
-  year    = "2025",
-  month   = "Mar",
-  url     = "https://tiancixue.notion.site/An-Illusion-of-Progress-Assessing-the-Current-State-of-Web-Agents-1ac6cd2b9aac80719cd6f68374aaf4b4"
+Note: Online-Mind2Web is derived from the original Mind2Web dataset. We kindly ask that you cite both the original and this work when using or referencing the data.
+```
+@article{xue2025illusionprogressassessingcurrent,
+      title={An Illusion of Progress? Assessing the Current State of Web Agents}, 
+      author={Tianci Xue and Weijian Qi and Tianneng Shi and Chan Hee Song and Boyu Gou and Dawn Song and Huan Sun and Yu Su},
+      year={2025},
+      eprint={2504.01382},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2504.01382}, 
 }
+
+@inproceedings{deng2023mind2web,
+ author = {Deng, Xiang and Gu, Yu and Zheng, Boyuan and Chen, Shijie and Stevens, Sam and Wang, Boshi and Sun, Huan and Su, Yu},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {A. Oh and T. Naumann and A. Globerson and K. Saenko and M. Hardt and S. Levine},
+ pages = {28091--28114},
+ publisher = {Curran Associates, Inc.},
+ title = {Mind2Web: Towards a Generalist Agent for the Web},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2023/file/5950bf290a1570ea401bf98882128160-Paper-Datasets_and_Benchmarks.pdf},
+ volume = {36},
+ year = {2023}
+}
+```
