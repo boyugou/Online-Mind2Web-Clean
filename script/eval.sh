@@ -1,10 +1,11 @@
 
-api_key=YOUR_API
-model_name=MODEL
+api_key=API_KEY
+model_name=MODEL_NAME
 
 #Automatic evaluation method
 modes=(
-    "Online_Mind2Web_eval"
+    "WebJudge_Online_Mind2Web_eval"
+    "WebJudge_general_eval"
     "Autonomous_eval"
     "WebVoyager_eval"
     "AgentTrek_eval"

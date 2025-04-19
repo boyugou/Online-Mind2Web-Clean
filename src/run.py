@@ -1,12 +1,14 @@
 import argparse
 import os
-from prompt import *
+from methods.agenttrek_eval import *
+from methods.automomous_eval import *
+from methods.webjudge_general_eval import *
+from methods.webjudge_online_mind2web import *
+from methods.webvoyager_eval import *
 from utils import OpenaiEngine, extract_predication
 import json
 import copy
 import asyncio
-import json
-import os
 import multiprocessing
 
 def auto_eval(args, task_subset, final_predicted_labels, lock, model):
@@ -31,6 +33,11 @@ def auto_eval(args, task_subset, final_predicted_labels, lock, model):
 
         trajectory_images_path = os.path.join(args.trajectories_dir, task_id, "trajectory")
         screenshot_paths = []
+        thoughts = None
+        action_history = None
+        final_result_response = None
+        input_image_paths = None
+        task_description = None
         # Load results
         with open(os.path.join(args.trajectories_dir, task_id, "result.json")) as f:
             result = json.load(f)
@@ -42,6 +49,9 @@ def auto_eval(args, task_subset, final_predicted_labels, lock, model):
                 thoughts = result["thoughts"]
             if "final_result_response" in result:
                 final_result_response = result["final_result_response"]
+            if "input_image_paths" in result:
+                input_image_paths = result["input_image_paths"]
+
         print(f"Start evaluation for {task_description}")
         # Do the auto-eval
         if args.mode == "Autonomous_eval":
@@ -59,10 +69,17 @@ def auto_eval(args, task_subset, final_predicted_labels, lock, model):
                 screenshot_paths.append(os.path.join(trajectory_images_path, image))
             messages, text, system_msg = WebVoyager_eval(task_description, screenshot_paths, final_result_response)
         
-        elif args.mode == "Online_Mind2Web_eval":
+        elif args.mode == "WebJudge_Online_Mind2Web_eval":
             for image in sorted(os.listdir(trajectory_images_path), key=lambda x: int(re.findall(r'\d+', x)[0])):
                 screenshot_paths.append(os.path.join(trajectory_images_path, image))
-            messages, text, system_msg, record, key_points = asyncio.run(Online_Mind2Web_eval(task_description, action_history, screenshot_paths, model, args.score_threshold))
+            messages, text, system_msg, record, key_points = asyncio.run(WebJudge_Online_Mind2Web_eval(task_description, action_history, screenshot_paths, model, args.score_threshold))
+            output_results["image_judge_record"] = record
+            output_results["key_points"] = key_points
+
+        elif args.mode == "WebJudge_general_eval":
+            for image in sorted(os.listdir(trajectory_images_path), key=lambda x: int(re.findall(r'\d+', x)[0])):
+                screenshot_paths.append(os.path.join(trajectory_images_path, image))
+            messages, text, system_msg, record, key_points = asyncio.run(WebJudge_general_eval(task_description, input_image_paths, thoughts, action_history, screenshot_paths, model, args.score_threshold))
             output_results["image_judge_record"] = record
             output_results["key_points"] = key_points
 

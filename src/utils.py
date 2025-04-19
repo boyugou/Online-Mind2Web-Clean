@@ -41,7 +41,15 @@ def extract_predication(response, mode):
             return 0
         else:
             return 1
-    elif mode == "Online_Mind2Web_eval":
+    elif mode == "WebJudge_Online_Mind2Web_eval":
+        try:
+            if "success" in response.lower().split('status:')[1]:
+                return 1
+            else:
+                return 0
+        except:
+            return 0  
+    elif mode == "WebJudge_general_eval":
         try:
             if "success" in response.lower().split('status:')[1]:
                 return 1
