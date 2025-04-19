@@ -70,8 +70,8 @@ async def judge_image(task, input_image_paths, image_path, key_points, model):
     - **5**: The image clearly displays necessary steps or evidence crucial for completing the task.
 
 Respond with:  
-1. **Reasoning**: [Your explanation]  
-2. **Score**: [1-5]"""
+### Reasoning**: [Your explanation]  
+### Score**: [1-5]"""
 
 
     prompt = """**Task**: {task}
@@ -164,8 +164,8 @@ The potentially important snapshots of the webpage in the agent's trajectory and
     pattern = r"[1-5]"
     for response, image_path in zip(image_responses, images_path):
         try:
-            score_text = response.split("Score")[1]
-            thought = response.split("**Reasoning**:")[-1].strip().lstrip("\n").split("\n\n")[0].replace('\n',' ')
+            score_text = response.split("### Score")[1]
+            thought = response.split("### Reasoning:")[-1].strip().lstrip("\n").split("### Score")[0].replace('\n',' ')
             score = re.findall(pattern, score_text)[0]
             record.append({"Response": response, "Score": int(score)})
         except Exception as e:
