@@ -20,4 +20,8 @@ The label 2 indicates that the agent could not execute the task at all. The spec
 
 - **SeeAct**: Some tasks raise internal bugs when the agent extracts elements from the web page.
 - **Operator**: Certain websites (e.g., Reddit) are inaccessible, preventing task execution.
+- **Claude Computer Use 3.7**: Due to updates on the websites, a few tasks became outdated during the testing phase..
 - **Agent-E** and **Browser Use**: Label 2 typically corresponds to tasks blocked by **CAPTCHAs**. There are only **two** tasks for Agent-E and **one** task for Browser Use.
+
+## Note
+The results on the leaderboard are averaged over three runs, so there may be slight differences compared to the auto-eval results shown here.
