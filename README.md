@@ -47,7 +47,7 @@ To enhance the reliability and scalability of the evaluation process in online e
 
 # Results
 
-## Comparison against Existing Evaluation Methods
+## Comparison against Existing Evaluation Methods on Online-Mind2Web
 <table>
 <tr>
   <th>Model</th>
