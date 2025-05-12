@@ -38,12 +38,122 @@ We will regularly update Online-Mind2Web by replacing outdated or invalid tasks 
 
 To ensure fair comparisons, we will aim to keep the updated tasks on the same websites as before and with a similar reference length. Additionally, once agent performance saturates on Online-Mind2Web, we will also revise simple tasks to preserve its long-term value.
 
-## Automatic Evaluator via LLM-as-a-Judge (WebJudge)
+# Automatic Evaluator via LLM-as-a-Judge (WebJudge)
 To enhance the reliability and scalability of the evaluation process in online environments, We propose a more reliable automatic evaluation method called **WebJudge**, which consists of three parts. (1) Key Point Identification: The model is prompted to identify several key points necessary for completing the task, based on the given instruction and task description. (2) Key Screenshot Identification: Important screenshots are selected from the agent’s trajectory to retain relevant visual evidence while discarding uninformative frames. (3) Outcome Judgment: Output the judgement result based on the task description, key points, key screenshots, and the action history. Our method preserves critical intermediate screenshots while mitigating the token overload issue.
 
 <p align="center">
   <img src="./images/WebJudge.jpg" width="100%" alt="pipeline">
 </p>
+
+# Results
+
+## Comparison against Existing Evaluation Methods
+<table>
+<tr>
+  <th rowspan="4">GPT-4o</th>
+  <td>Autonomous Eval</td>
+  <td>84.7</td>
+  <td>85.0</td>
+  <td>76.0</td>
+  <td>83.7</td>
+  <td>75.5</td>
+  <td>71.7</td>
+  <td>79.4</td>
+</tr>
+<tr>
+  <td>AgentTrek Eval</td>
+  <td>73.0</td>
+  <td>64.3</td>
+  <td>63.3</td>
+  <td>--</td>
+  <td>--</td>
+  <td>--</td>
+  <td>66.9</td>
+</tr>
+<tr>
+  <td>WebVoyager</td>
+  <td>--</td>
+  <td>75.3</td>
+  <td>71.3</td>
+  <td>74.0</td>
+  <td>72.0</td>
+  <td>76.7</td>
+  <td>73.9</td>
+</tr>
+<tr>
+  <td>WebJudge</td>
+  <td>86.7</td>
+  <td>86.0</td>
+  <td>81.4</td>
+  <td>86.3</td>
+  <td>79.1</td>
+  <td>81.8</td>
+  <td><b>83.6</b></td>
+</tr>
+
+<tr>
+  <th rowspan="3">o4-mini</th>
+  <td>Autonomous Eval</td>
+  <td>79.7</td>
+  <td>85.7</td>
+  <td>86.0</td>
+  <td>84.3</td>
+  <td>68.0</td>
+  <td>73.3</td>
+  <td>79.5</td>
+</tr>
+<tr>
+  <td>WebVoyager</td>
+  <td>--</td>
+  <td>80.3</td>
+  <td>79.0</td>
+  <td>81.7</td>
+  <td>74.3</td>
+  <td>78.3</td>
+  <td>78.7</td>
+</tr>
+<tr>
+  <td>WebJudge</td>
+  <td>85.3</td>
+  <td>86.3</td>
+  <td>89.3</td>
+  <td>87.0</td>
+  <td>82.3</td>
+  <td>83.7</td>
+  <td><b>85.7</b></td>
+</tr>
+
+<tr>
+  <th>WebJudge-7B</th>
+  <td>WebJudge-7B</td>
+  <td>86.0</td>
+  <td>87.3</td>
+  <td>88.3</td>
+  <td>89.7</td>
+  <td>84.3</td>
+  <td>86.3</td>
+  <td><b>87.0</b></td>
+</tr>
+</table>
+WebJudge powered by GPT-4o and o4-mini consistently achieves the highest agreement, with averages of 83.6% and 85.7%, respectively. Meanwhile, WebJudge-7B even outperforms o4-mini, reaching a high agreement with human judgment of 87%.
+
+
+## Excellent generalization capabilities on [AgentRewardBench](https://agent-reward-bench.github.io/) (5 OOD benchmarks)
+| **Methods** | **AB** | **VWA** | **WA** | **Work** | **Wk++** | **Overall** |
+|--------------|--------|--------|--------|----------|----------|--------------|
+| *Rule-based** | 25.0 | **85.2** | 79.0 | 100.0 | 83.3 | 83.8 |
+| Autonomous Eval* | 83.3 | 61.2 | 67.6 | 96.4 | 59.3 | 67.6 |
+| GPT-4o (A11y Tree)* | 77.8 | 63.0 | 70.2 | 94.6 | 63.0 | 69.8 |
+| WebJudge (GPT-4o) | 66.7 | 69.8 | 72.6 | 92.3 | 75.0 | 73.7 |
+| WebJudge-7B | 80.0 | 66.7 | 77.5 | 100.0 | 70.0 | 75.7 |
+| WebJudge (o4-mini) | **100.0** | 74.5 | **81.2** | **100.0** | **90.0** | **82.0** |
+
+WebJudge significantly outperforms existing methods, achieving impressive overall precision of 73.7% 75.7% and 82.0% on WebArena (WA), VisualWebArena (VWA), AssistantBench (AB), WorkArena (Work) and WorkArena++ (Wk++) across 1302 trajectories.
+
+The high precision suggests that WebJudge holds potential as a robust and scalable reward model for downstream applications such as Rejection Sampling Fine-Tuning, Reflection, and Reinforcement Learning.
+
+# Model Release
+We have released the fine-tuned [WebJudge-7B](https://huggingface.co/osunlp/WebJudge-7B) weights, which are now available on Hugging Face.
 
 # Setup Environment
 
@@ -60,12 +170,17 @@ You can run the provided example evaluation script directly to perform the evalu
 bash ./script/eval.sh
 ```
 
+## Important Notes for Reliable Evaluation on Online-Mind2Web:
+- To enable fair comparisons, please ensure that each task starts from the specified website in our benchmark. Starting from Google Search or alternative websites can lead agents to use different websites to solve the task, resulting in varying difficulty levels and potentially skewed evaluation results.
+- The action history should contain only the actions taken by the agent to complete the task (e.g., clicking elements and Typing text). Please avoid including the final response, as it may contain hallucinated content, leading to a high rate of false positives.
+- WebJudge powered by o4-mini demonstrates a higher alignment with human judgment, achieving an average agreement rate of 85.7% and maintaining a narrow success rate gap of just 3.8%. Therefore, please use o4-mini as the backbone for automatic evaluation.
+
 # Evaluation Results
 
 In certain scenarios, testing on the full Online-Mind2Web dataset may not be feasible due to cost, privacy, or legal constraints. To facilitate fair and apple-to-apple comparisons, we release both our human evaluation labels and auto-eval details.
 
-- **Human Evaluation**: Task-level human evaluation labels are provided in the [file](https://github.com/OSU-NLP-Group/Online-Mind2Web/tree/main/data/human_label.json).
-- **Auto-Evaluation**: The results of WebJudge are available in the [folder](https://github.com/OSU-NLP-Group/Online-Mind2Web/tree/main/data/evaluation_results).
+- **Human Evaluation**: Task-level human evaluation labels are provided in the [file](https://github.com/OSU-NLP-Group/Online-Mind2Web/tree/main/data/evaluation_results/online_mind2web_evaluation_results/human_label.json).
+- **Auto-Evaluation**: The results of WebJudge are available in the [folder](https://github.com/OSU-NLP-Group/Online-Mind2Web/tree/main/data/evaluation_results/online_mind2web_evaluation_results).
 
 ## 📚 Citation
 
