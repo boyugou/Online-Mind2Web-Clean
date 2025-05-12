@@ -50,6 +50,17 @@ To enhance the reliability and scalability of the evaluation process in online e
 ## Comparison against Existing Evaluation Methods
 <table>
 <tr>
+  <th>Model</th>
+  <th>Auto-Eval</th>
+  <td>SeeAct</td>
+  <td>Agent-E</td>
+  <td>Browser Use</td>
+  <td>Claude 3.5 </td>
+  <td>Claude 3.7</td>
+  <td>Operator</td>
+  <th>Avg AR</th>
+</tr>
+<tr>
   <th rowspan="4">GPT-4o</th>
   <td>Autonomous Eval</td>
   <td>84.7</td>
@@ -124,7 +135,7 @@ To enhance the reliability and scalability of the evaluation process in online e
 </tr>
 
 <tr>
-  <th>WebJudge-7B</th>
+  <th></th>
   <td>WebJudge-7B</td>
   <td>86.0</td>
   <td>87.3</td>
