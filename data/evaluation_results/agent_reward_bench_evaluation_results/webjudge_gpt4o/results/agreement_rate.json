@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d50d327fa1182aaafb404705af7b7b5d5d0fb686851b16fd470a987bbe2fcfc1
-size 225
+{
+  "trajectory_success": 0,
+  "trajectory_side_effect": 0,
+  "trajectory_optimality": 0,
+  "trajectory_looping": 0,
+  "trajectory_optimality_approx": 0,
+  "trajectory_optimality_diff": 0,
+  "trajectory_optimality_merge": 0
+}
