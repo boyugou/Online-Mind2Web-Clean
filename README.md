@@ -30,7 +30,7 @@
 # Online-Mind2Web benchmark
 
 ## News
-* [05/11/2025] Check out our updates in the [paper](https://arxiv.org/abs/2504.01382)
+* [05/11/2025] Check out our updates in the [paper](https://arxiv.org/abs/2504.01382).
   * The performance of Claude Computer Use 3.7.
   * WebJudge(o4-mini) achieves high agreement (86%) with a low success rate gap (3.8%) compared with humans.
   * Release [WebJudge-7B](https://huggingface.co/osunlp/WebJudge-7B), a robust and reliable reward model for Reinforcement learning.
