@@ -29,6 +29,12 @@
 
 # Online-Mind2Web benchmark
 
+## News
+* [05/11/2025] Check out our updates in the [paper](https://arxiv.org/abs/2504.01382)
+  * The performance of Claude Computer Use 3.7.
+  * WebJudge(o4-mini) achieves high agreement (86%) with a low success rate gap (3.8%) compared with humans.
+  * Release [WebJudge-7B](https://huggingface.co/osunlp/WebJudge-7B), a robust and reliable reward model for Reinforcement learning.
+
 ## Tasks
 Online-Mind2Web includes 300 diverse tasks from 136 popular websites across various domains. It covers a diverse set of real-world user tasks, such as clothing, food, housing, and transportation, to evaluate web agents' performance in a real-world online environment.
 
@@ -182,9 +188,10 @@ bash ./script/eval.sh
 ```
 
 ## Important Notes for Reliable Evaluation on Online-Mind2Web:
-- To enable fair comparisons, please ensure that each task starts from the specified website in our benchmark. Starting from Google Search or alternative websites can lead agents to use different websites to solve the task, resulting in varying difficulty levels and potentially skewed evaluation results.
-- The action history should contain only the actions taken by the agent to complete the task (e.g., clicking elements and Typing text). Please avoid including the final response, as it may contain hallucinated content, leading to a high rate of false positives.
-- WebJudge powered by o4-mini demonstrates a higher alignment with human judgment, achieving an average agreement rate of 85.7% and maintaining a narrow success rate gap of just 3.8%. Therefore, please use o4-mini as the backbone for automatic evaluation.
+> [!IMPORTANT]
+> - **Start from the specified websites, not Google Search**:To enable fair comparisons, please ensure that each task starts from the specified website in our benchmark. Starting from Google Search or alternative websites can lead agents to use different websites to solve the task, resulting in varying difficulty levels and potentially skewed evaluation results.
+> - **Include only factual actions, not agent outputs**: The action history should contain only the factual actions taken by the agent to complete the task (e.g., clicking elements and Typing text). Do not include the final response or any other agent's outputs, as they may contain hallucinated content and result in a high rate of false positives.
+> - **Use o4-mini for WebJudge**: WebJudge powered by o4-mini demonstrates a higher alignment with human judgment, achieving an average agreement rate of 85.7% and maintaining a narrow success rate gap of just 3.8%. Therefore, please use o4-mini as the backbone for automatic evaluation.
 
 # Evaluation Results
 
