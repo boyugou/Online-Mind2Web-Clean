@@ -30,6 +30,7 @@
 # Online-Mind2Web benchmark
 
 ## News
+* [07/08/2025] 🎉 Online-Mind2Web has been accepted to COLM 2025!
 * [05/11/2025] Check out our updates in the [paper](https://arxiv.org/abs/2504.01382).
   * The performance of Claude Computer Use 3.7.
   * WebJudge(o4-mini) achieves high agreement (86%) with a low success rate gap (3.8%) compared with humans.
